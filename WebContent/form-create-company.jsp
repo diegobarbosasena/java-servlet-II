@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<c:url value="/new-company" var="urlServletNewCompany" />
+<c:url value="/entry" var="urlEntryServlet" />
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,10 +10,12 @@
 </head>
 <body>
 
-	<form action="${urlServletNewCompany}" method="post">
+	<form action="${urlEntryServlet}" method="post">
 
 		Name: <input type="text" name="companyName" /> 
 		Opening Date : <input type="text" name="openingDate" /> 
+		
+		<input type="hidden" name="controller" value="newCompany"> 
 		
 		<input type="submit" value="Enviar" />
 

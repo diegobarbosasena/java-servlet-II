@@ -1,4 +1,4 @@
-package br.com.diego.manager.servlet;
+package br.com.diego.manager.model;
 
 import java.util.Date;
 

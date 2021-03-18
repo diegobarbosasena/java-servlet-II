@@ -1,20 +1,20 @@
-package br.com.diego.manager.servlet;
+package br.com.diego.manager.controller;
 
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/show-company")
-public class ShowCompanyServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+import br.com.diego.manager.model.Company;
+import br.com.diego.manager.model.FakeDataBase;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+public class ShowCompany {
+
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		System.out.println("Controller Show Company");
 
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);

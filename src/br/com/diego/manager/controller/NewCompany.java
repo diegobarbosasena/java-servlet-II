@@ -1,4 +1,4 @@
-package br.com.diego.manager.servlet;
+package br.com.diego.manager.controller;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -6,22 +6,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/new-company")
-public class NewCompanyServlet extends HttpServlet {
+import br.com.diego.manager.model.Company;
+import br.com.diego.manager.model.FakeDataBase;
 
-	private static final long serialVersionUID = 1L;
+public class NewCompany {
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		System.out.println("creating a new company");
+		System.out.println("Creating a New Company");
 
 		request.setCharacterEncoding("UTF-8");
+		
 		String companyName = request.getParameter("companyName");
 		String paramOpeningDate = request.getParameter("openingDate");
 
@@ -42,6 +40,6 @@ public class NewCompanyServlet extends HttpServlet {
 		fakeDataBase.save(company);
 
 		request.setAttribute("company", company.getName());
-		response.sendRedirect("companies");
+		response.sendRedirect("entry?controller=companies");
 	}
 }
