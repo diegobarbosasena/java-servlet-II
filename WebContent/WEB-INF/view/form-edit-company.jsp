@@ -19,7 +19,7 @@
 			value="<fmt:formatDate value="${ company.openingDate }" pattern="dd/MM/yyyy" />" />
 
 		<input type="hidden" name="id" value="${ company.id }"> 
-		<input type="hidden" name="controller" value="updateCompany"> 
+		<input type="hidden" name="controller" value="UpdateCompany"> 
 		
 		<input type="submit" value="Update" />
 

@@ -12,14 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.diego.manager.model.Company;
 import br.com.diego.manager.model.FakeDataBase;
 
-public class NewCompany {
+public class NewCompany implements ActionController {
 
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String execute(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		System.out.println("Creating a New Company");
+		System.out.println("Save a New Company");
 
 		request.setCharacterEncoding("UTF-8");
-		
+
 		String companyName = request.getParameter("companyName");
 		String paramOpeningDate = request.getParameter("openingDate");
 
@@ -40,6 +41,7 @@ public class NewCompany {
 		fakeDataBase.save(company);
 
 		request.setAttribute("company", company.getName());
-		response.sendRedirect("entry?controller=companies");
+
+		return "redirect:entry?controller=ListCompanies";
 	}
 }

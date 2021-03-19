@@ -2,7 +2,6 @@ package br.com.diego.manager.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,9 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.diego.manager.model.Company;
 import br.com.diego.manager.model.FakeDataBase;
 
-public class ShowCompany {
+public class ShowCompany implements ActionController {
 
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String execute(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		System.out.println("Controller Show Company");
 
@@ -25,7 +25,6 @@ public class ShowCompany {
 
 		request.setAttribute("company", company);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/form-edit-company.jsp");
-		dispatcher.forward(request, response);
+		return "forward:form-edit-company.jsp";
 	}
 }

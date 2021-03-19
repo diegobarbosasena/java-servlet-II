@@ -8,10 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.diego.manager.model.FakeDataBase;
 
-public class RemoveCompany {
+public class RemoveCompany implements ActionController {
 
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public String execute(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		System.out.println("Controller Remove Company");
 
 		String paramId = request.getParameter("id");
@@ -20,6 +21,6 @@ public class RemoveCompany {
 		FakeDataBase fakeDataBase = new FakeDataBase();
 		fakeDataBase.delete(id);
 
-		response.sendRedirect("entry?controller=companies");
+		return "redirect:entry?controller=ListCompanies";
 	}
 }

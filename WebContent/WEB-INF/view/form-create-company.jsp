@@ -15,7 +15,7 @@
 		Name: <input type="text" name="companyName" /> 
 		Opening Date : <input type="text" name="openingDate" /> 
 		
-		<input type="hidden" name="controller" value="newCompany"> 
+		<input type="hidden" name="controller" value="NewCompany"> 
 		
 		<input type="submit" value="Enviar" />
 

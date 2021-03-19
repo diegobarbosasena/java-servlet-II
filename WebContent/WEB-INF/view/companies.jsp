@@ -25,9 +25,11 @@
 	<ul>
 		<c:forEach items="${companies }" var="company">
 		
-			<li>${company.name } <fmt:formatDate value="${ company.openingDate }" pattern="dd/MM/yyyy" /> 
-				<a href="${urlEntryServlet }?controller=showCompany&id=${company.id }">edit</a> 
-				<a href="${urlEntryServlet }?controller=removeCompany&id=${company.id }">remove</a>
+			<li>
+				${company.name } <fmt:formatDate value="${ company.openingDate }" pattern="dd/MM/yyyy" /> 
+				
+				<a href="${urlEntryServlet }?controller=ShowCompany&id=${company.id }">edit</a> 
+				<a href="${urlEntryServlet }?controller=RemoveCompany&id=${company.id }">remove</a>
 			</li>
 		
 		</c:forEach>

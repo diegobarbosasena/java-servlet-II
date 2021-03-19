@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.diego.manager.model.Company;
 import br.com.diego.manager.model.FakeDataBase;
 
-public class UpdateCompany {
+public class UpdateCompany implements ActionController {
 
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String execute(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
 
@@ -40,6 +41,6 @@ public class UpdateCompany {
 		company.setName(companyName);
 		company.setOpeningDate(openingDate);
 
-		response.sendRedirect("entry?controller=companies");
+		return "redirect:entry?controller=ListCompanies";
 	}
 }
