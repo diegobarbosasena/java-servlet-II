@@ -11,6 +11,8 @@
 </head>
 <body>
 
+	<c:import url="partial-logout.jsp" />
+	
 	<form action="${urlEntryServlet}" method="post">
 
 		Name: <input type="text" name="companyName" value="${company.name }" />

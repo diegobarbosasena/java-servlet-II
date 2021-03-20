@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.diego.manager.model.FakeDataBase;
 import br.com.diego.manager.model.User;
@@ -25,9 +26,12 @@ public class Login implements ActionController {
 
 		boolean validUser = user != null;
 
-		if (validUser)
+		if (validUser) {
 			System.out.println("Valid User");
 
+			HttpSession session = request.getSession();
+			session.setAttribute("loggedUser", user);
+		}
 		return validUser ? "redirect:entry?controller=ListCompanies" : "redirect:entry?controller=Index";
 	}
 }

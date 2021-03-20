@@ -3,6 +3,8 @@
 <html>
 <body>
 
+	<c:import url="partial-logout.jsp" />
+
 	<c:if test="${ not empty company }">	
 		<h2>${ company } company successfully registered</h2>
 	</c:if>

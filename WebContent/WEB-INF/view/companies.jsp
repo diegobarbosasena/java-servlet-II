@@ -16,6 +16,12 @@
 </head>
 <body>
 
+	<c:import url="partial-logout.jsp" />
+
+	<h2> Logged User: ${loggedUser.login }</h2>
+
+	<br>
+
 	<c:if test="${ not empty company }">
 		<h2>${ company } company successfully registered</h2>
 	</c:if>

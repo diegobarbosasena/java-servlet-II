@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.diego.manager.controller.ActionController;
 
@@ -19,6 +20,15 @@ public class SingleEntryServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String paramController = request.getParameter("controller");
+
+		HttpSession session = request.getSession();
+		boolean notLoggedUser = (session.getAttribute("loggedUser") == null);
+		boolean isControllerProtected = !(paramController.equals("Login") || paramController.equals("Index"));
+
+		if (isControllerProtected && notLoggedUser) {
+			response.sendRedirect("entry?controller=Index");
+			return;
+		}
 
 		String className = "br.com.diego.manager.controller." + paramController;
 
