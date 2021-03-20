@@ -9,6 +9,8 @@ public class FakeDataBase {
 	private static List<Company> companies = new ArrayList<>();
 	private static Integer sequentialKey = 1;
 
+	private static List<User> users = new ArrayList<>();
+
 	static {
 		Company company = new Company();
 		company.setName("Natural");
@@ -20,6 +22,17 @@ public class FakeDataBase {
 
 		companies.add(company);
 		companies.add(company2);
+
+		User user = new User();
+		user.setLogin("diego");
+		user.setPass("pass");
+
+		User user2 = new User();
+		user2.setLogin("user");
+		user2.setPass("pass");
+
+		users.add(user);
+		users.add(user2);
 	}
 
 	public void save(Company company) {
@@ -46,6 +59,14 @@ public class FakeDataBase {
 		for (Company company : companies) {
 			if (company.getId().equals(id))
 				return company;
+		}
+		return null;
+	}
+
+	public User validUser(String login, String pass) {
+		for (User user : users) {
+			if (user.isEquals(login, pass))
+				return user;
 		}
 		return null;
 	}
