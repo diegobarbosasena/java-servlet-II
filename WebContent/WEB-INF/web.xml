@@ -14,10 +14,36 @@
 		<servlet-name>HelloWorldServlet</servlet-name>
 		<servlet-class>br.com.diego.manager.servlet.HelloWorldServlet</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>HelloWorldServlet</servlet-name>
 		<url-pattern>/hello</url-pattern>
 	</servlet-mapping>
+
+	<filter>
+		<filter-name>MonitoringFilter</filter-name>
+		<filter-class>br.com.diego.manager.servlet.MonitoringFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>MonitoringFilter</filter-name>
+		<url-pattern>/entry</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>AuthorizationFilter</filter-name>
+		<filter-class>br.com.diego.manager.servlet.AuthorizationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AuthorizationFilter</filter-name>
+		<url-pattern>/entry</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>ControllerFilter</filter-name>
+		<filter-class>br.com.diego.manager.servlet.ControllerFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ControllerFilter</filter-name>
+		<url-pattern>/entry</url-pattern>
+	</filter-mapping>
 
 </web-app>

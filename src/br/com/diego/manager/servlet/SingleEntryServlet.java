@@ -19,36 +19,8 @@ public class SingleEntryServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String paramController = request.getParameter("controller");
+		
 
-		HttpSession session = request.getSession();
-		boolean notLoggedUser = (session.getAttribute("loggedUser") == null);
-		boolean isControllerProtected = !(paramController.equals("Login") || paramController.equals("Index"));
-
-		if (isControllerProtected && notLoggedUser) {
-			response.sendRedirect("entry?controller=Index");
-			return;
-		}
-
-		String className = "br.com.diego.manager.controller." + paramController;
-
-		String viewName;
-		try {
-			Class classRef = Class.forName(className);
-			ActionController actionController = (ActionController) classRef.newInstance();
-			viewName = actionController.execute(request, response);
-
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-			throw new ServletException(e);
-		}
-
-		String[] viewAndController = viewName.split(":");
-
-		if (viewAndController[0].equals("forward")) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/view/" + viewAndController[1]);
-			dispatcher.forward(request, response);
-		} else {
-			response.sendRedirect(viewAndController[1]);
-		}
+		
 	}
 }
