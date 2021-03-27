@@ -4,7 +4,7 @@ Curso de [Java Servlet](https://www.alura.com.br/curso-online-servlet-autenticac
 
 Esse curso pode não estar mais disponível na [Alura](https://www.alura.com.br), pois o mesmo pode ter sido atualizado.
 
-## Instalação
+##
 
 Para a construção desse projeto foi utilizado [Eclipse IDE 2020‑12](https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2020-12/R/eclipse-inst-jre-win64.exe).
 
